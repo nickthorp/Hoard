@@ -50,4 +50,13 @@ public class BookDAO {
         session.close();
         return book;
     }
+
+    public Book deleteBook(int itemId, String userEmail){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Book book = getBook(itemId, userEmail);
+        session.delete(book);
+        session.flush();
+        session.close();
+        return book;
+    }
 }

@@ -53,4 +53,12 @@ public class BookDAOTest extends TestCase {
         Book bookResult = bookDao.getBook(111, "email");
         assertThat(book, is(equalTo(bookResult)));
     }
+
+    public void testDeleteBook() throws Exception {
+        bookDao.saveOrUpdateBooks(book);
+        assertThat(bookDao.getAllBooks().size(), is(equalTo(1)));
+        Book bookDeleted = bookDao.deleteBook(111,"email");
+        assertThat(bookDao.getAllBooks().size(), is(equalTo(0)));
+        assertThat(bookDeleted, is(equalTo(book)));
+    }
 }
