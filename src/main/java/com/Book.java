@@ -1,10 +1,11 @@
-import com.sun.org.apache.xpath.internal.operations.Bool;
+package com;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
 /**
  * Created by Nicholas on 10/27/2015.
@@ -12,7 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "Book")
 @XmlRootElement
-public class Book {
+public class Book implements Serializable {
     @Id
     @Column(name = "itemId")
     private int itemId;
@@ -135,14 +136,22 @@ public class Book {
         Book book = (Book) o;
         if(itemId != book.itemId)
             return false;
-        if(userEmail.compareTo(book.userEmail) != 0)
-            return false;
-        if(title.compareTo(book.title) != 0)
-            return false;
-        if(author.compareTo(book.author) != 0)
-            return false;
-        if(publisher.compareTo(book.publisher) != 0)
-            return false;
+        if(!(userEmail == null && book.userEmail == null)) {
+            if (userEmail.compareTo(book.userEmail) != 0)
+                return false;
+        }
+        if(!(title == null && book.title == null)){
+            if(title.compareTo(book.title) != 0)
+                return false;
+        }
+        if(!(author == null && book.author == null)){
+            if(author.compareTo(book.author) != 0)
+                return false;
+        }
+        if(!(publisher == null && book.publisher == null)){
+            if(publisher.compareTo(book.publisher) != 0)
+                return false;
+        }
         if(edition != book.edition)
             return false;
         if(isbn != book.isbn)

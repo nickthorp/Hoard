@@ -1,4 +1,4 @@
-package DataLayer;
+package com;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;

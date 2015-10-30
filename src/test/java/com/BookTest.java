@@ -1,5 +1,6 @@
+package com;
+
 import junit.framework.TestCase;
-import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
@@ -11,7 +12,6 @@ public class BookTest extends TestCase {
 
     public void setUp() throws Exception {
         super.setUp();
-
     }
 
     public void tearDown() throws Exception {
