@@ -10,6 +10,17 @@ import java.util.List;
  * Created by Nicholas on 10/28/2015.
  */
 public class BookDAO {
+
+    private static volatile BookDAO instance = null;
+
+    private BookDAO(){}
+
+    public static synchronized BookDAO getInstance(){
+        if (instance == null)
+            instance = new BookDAO();
+        return instance;
+    }
+
     public void deleteAllBooks(){
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.createQuery("delete from Book").executeUpdate();

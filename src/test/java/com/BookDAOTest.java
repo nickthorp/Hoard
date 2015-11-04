@@ -16,7 +16,7 @@ public class BookDAOTest extends TestCase {
         super.setUp();
         book = new Book();
         book.setItemId(111); book.setUserEmail("email"); book.setTitle("title");
-        bookDao = new BookDAO();
+        bookDao = BookDAO.getInstance();
     }
 
     public void tearDown() throws Exception {

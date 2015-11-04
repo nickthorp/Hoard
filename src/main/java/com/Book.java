@@ -36,6 +36,7 @@ public class Book implements Serializable {
     private Boolean isRead;
     @Column(name = "isReading")
     private Boolean isReading;
+    private String link;
 
     public Book(){
     }
@@ -181,5 +182,13 @@ public class Book implements Serializable {
         hash = hash * prime + (isRead != null ? isRead.hashCode() : 0);
         hash = hash * prime + (isReading != null ? isReading.hashCode() : 0);
         return hash;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 }
