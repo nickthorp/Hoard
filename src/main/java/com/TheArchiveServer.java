@@ -17,12 +17,12 @@ public class TheArchiveServer {
 
     public static void main(String[] args) throws Exception {
         TheArchiveServer server = new TheArchiveServer();
-        HttpServer httpServer = server.start();
+        HttpServer httpServer = server.startServer();
         System.in.read();
         httpServer.shutdown();
     }
 
-    public HttpServer start(){
+    public HttpServer startServer(){
         ResourceConfig resourceConfig = new ResourceConfig().packages("com");
         HttpServer httpServer = GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_API_URI), resourceConfig);
         httpServer.getServerConfiguration().addHttpHandler(getHttpHandler(), "/page");

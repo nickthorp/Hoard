@@ -41,13 +41,6 @@ public class Book implements Serializable {
     public Book(){
     }
 
-    public Book(String title, String author, Format format, Boolean isReading) {
-        this.title = title;
-        this.author = author;
-        this.format = format;
-        this.isReading = isReading;
-    }
-
     public int getItemId(){
         return itemId;
     }

@@ -43,6 +43,7 @@ public class BookAPI {
     }
 
     @GET
+    @Path("/{userEmail}")
     @JSONP(queryParam = "callback")
     public String getAllBooksForUser(@QueryParam("userEmail") String userEmail,
                                      @QueryParam("callback") String callback) throws Exception {
@@ -62,6 +63,7 @@ public class BookAPI {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.setSerializationInclusion(JsonSerialize.Inclusion.NON_DEFAULT);
         Book book = BookDAO.getInstance().getBook(itemId, userEmail);
+        book.setLink(ITEMS_URL + "/" + book.getItemId());
         return objectMapper.writeValueAsString(book);
     }
 
