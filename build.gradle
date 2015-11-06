@@ -1,8 +1,10 @@
-version '1.0-SNAPSHOT'
-
 apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'application'
 
 sourceCompatibility = 1.7
+version = '1.0'
+mainClassName = 'com.TheArchiveServer'
 
 repositories {
     mavenCentral()
