@@ -35,7 +35,7 @@ public class TheArchiveServer {
         return handler;
     }
 
-    private boolean getFileCacheEnabled() {
+    public boolean getFileCacheEnabled() {
         return false;
     }
 }

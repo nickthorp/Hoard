@@ -17,7 +17,6 @@ public class Book implements Serializable {
     @Id
     @Column(name = "itemId")
     private int itemId;
-    @Id
     @Column(name = "userEmail")
     private String userEmail;
     @Column(name = "title")
@@ -121,6 +120,14 @@ public class Book implements Serializable {
         this.isReading = isReading;
     }
 
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
     @Override
     public boolean equals(Object o){
         if(this == o)
@@ -175,13 +182,5 @@ public class Book implements Serializable {
         hash = hash * prime + (isRead != null ? isRead.hashCode() : 0);
         hash = hash * prime + (isReading != null ? isReading.hashCode() : 0);
         return hash;
-    }
-
-    public String getLink() {
-        return link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
     }
 }

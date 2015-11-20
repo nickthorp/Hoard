@@ -65,7 +65,7 @@ public class BookTest extends TestCase {
         book.setTitle("title");
         book.setAuthor("author");
         book.setPublisher("publisher");
-        book.setEdition(1);
+        //book.setEdition(1);
         book.setIsbn("123451234141");
         book.setFormat(Format.HARDCOVER);
         book.setIsRead(false);
@@ -76,7 +76,7 @@ public class BookTest extends TestCase {
         bookExpected.setTitle("expected title");
         bookExpected.setAuthor("author");
         bookExpected.setPublisher("publisher");
-        bookExpected.setEdition(1);
+        //bookExpected.setEdition(1);
         bookExpected.setIsbn("123451234141");
         bookExpected.setFormat(Format.HARDCOVER);
         bookExpected.setIsRead(false);

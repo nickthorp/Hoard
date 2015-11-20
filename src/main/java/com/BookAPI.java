@@ -11,11 +11,11 @@ import java.util.List;
 /**
  * Created by Nicholas on 10/31/2015.
  */
-@Path("v1/items")
+@Path("books")
 @Produces(MediaType.APPLICATION_JSON)
 public class BookAPI {
 
-    private static final String ITEMS_URL = "/TheArchive/v1/items";
+    private static final String ITEMS_URL = "/TheArchive/books";
 
     @DELETE
     @JSONP(queryParam = "callback")
@@ -24,7 +24,7 @@ public class BookAPI {
     }
 
     @DELETE
-    @Path("/{itemId}{userEmail}")
+    @Path("/{userEmail}/{itemId}")
     @JSONP(queryParam = "callback")
     public void deleteBook(@PathParam("itemId") int itemId,
                            @PathParam("userEmail") String userEmail) throws Exception {
@@ -51,19 +51,19 @@ public class BookAPI {
         objectMapper.setSerializationInclusion(JsonSerialize.Inclusion.NON_DEFAULT);
         List<Book> books = BookDAO.getInstance().getAllBooksForUser(userEmail);
         for (Book book :books)
-            book.setLink(ITEMS_URL + "/" + book.getItemId());
+            book.setLink(ITEMS_URL + "/" + book.getUserEmail() + "/" + book.getItemId());
         return objectMapper.writeValueAsString(books);
     }
 
     @GET
-    @Path("/{itemId}{userEmail}")
+    @Path("/{userEmail}/{itemId}")
     @JSONP(queryParam = "callback")
     public String getBook(@PathParam("itemId") int itemId,
                           @PathParam("userEmail") String userEmail) throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.setSerializationInclusion(JsonSerialize.Inclusion.NON_DEFAULT);
         Book book = BookDAO.getInstance().getBook(itemId, userEmail);
-        book.setLink(ITEMS_URL + "/" + book.getItemId());
+        book.setLink(ITEMS_URL + "/" + book.getUserEmail() + "/" + book.getItemId());
         return objectMapper.writeValueAsString(book);
     }
 
