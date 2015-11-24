@@ -1,5 +1,7 @@
 package com;
 
+import com.DataObjects.Book;
+import com.FormatEnums.PrintFormat;
 import junit.framework.TestCase;
 
 import static org.hamcrest.MatcherAssert.*;
@@ -40,9 +42,9 @@ public class BookTest extends TestCase {
     }
 
     public void testFormatHasGetterAndSetter() throws Exception {
-        Format expected = Format.HARDCOVER;
+        PrintFormat expected = PrintFormat.HARDCOVER;
         Book book = new Book();
-        book.setFormat(Format.HARDCOVER);
+        book.setFormat(PrintFormat.HARDCOVER);
         assertEquals(expected, book.getFormat());
     }
 
@@ -67,7 +69,7 @@ public class BookTest extends TestCase {
         book.setPublisher("publisher");
         //book.setEdition(1);
         book.setIsbn("123451234141");
-        book.setFormat(Format.HARDCOVER);
+        book.setFormat(PrintFormat.HARDCOVER);
         book.setIsRead(false);
         book.setIsReading(true);
         Book bookExpected = new Book();
@@ -78,7 +80,7 @@ public class BookTest extends TestCase {
         bookExpected.setPublisher("publisher");
         //bookExpected.setEdition(1);
         bookExpected.setIsbn("123451234141");
-        bookExpected.setFormat(Format.HARDCOVER);
+        bookExpected.setFormat(PrintFormat.HARDCOVER);
         bookExpected.setIsRead(false);
         bookExpected.setIsReading(true);
         assertThat(book, is(not(equalTo(bookExpected))));

@@ -1,5 +1,7 @@
-package com;
+package com.API;
 
+import com.DataAccessObjects.BookDAO;
+import com.DataObjects.Book;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.glassfish.jersey.server.JSONP;

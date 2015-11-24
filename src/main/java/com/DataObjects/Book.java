@@ -1,4 +1,6 @@
-package com;
+package com.DataObjects;
+
+import com.FormatEnums.PrintFormat;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +15,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "Book")
 @XmlRootElement
-public class Book implements Serializable {
+public class Book implements Serializable,Item {
     @Id
     @Column(name = "itemId")
     private int itemId;
@@ -30,7 +32,7 @@ public class Book implements Serializable {
     @Column(name = "ISBN")
     private String isbn;
     @Column(name = "format")
-    private Format format;
+    private PrintFormat format;
     @Column(name = "isRead")
     private Boolean isRead;
     @Column(name = "isReading")
@@ -96,11 +98,11 @@ public class Book implements Serializable {
         this.isbn = isbn;
     }
 
-    public Format getFormat() {
+    public PrintFormat getFormat() {
         return format;
     }
 
-    public void setFormat(Format format) {
+    public void setFormat(PrintFormat format) {
         this.format = format;
     }
 

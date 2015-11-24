@@ -1,5 +1,7 @@
-package com;
+package com.DataAccessObjects;
 
+import com.DataObjects.Book;
+import com.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -36,13 +38,13 @@ public class BookDAO {
 
     public List<Book> getAllBooks(){
         Session session = HibernateUtil.getSessionFactory().openSession();
-        List<Book> books = session.createQuery("from com.Book").list();
+        List<Book> books = session.createQuery("from com.DataObjects.Book").list();
         session.close();
         return books;
     }
 
     public List<Book> getAllBooksForUser(String userEmail){
-        String hql = "FROM com.Book E WHERE E.userEmail = :userEmail";
+        String hql = "FROM com.DataObjects.Book E WHERE E.userEmail = :userEmail";
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery(hql);
         query.setString("userEmail", userEmail);
@@ -52,7 +54,7 @@ public class BookDAO {
     }
 
     public Book getBook(int itemId, String userEmail){
-        String hql = "FROM com.Book E WHERE E.itemId = :itemId AND E.userEmail = :userEmail";
+        String hql = "FROM com.DataObjects.Book E WHERE E.itemId = :itemId AND E.userEmail = :userEmail";
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery(hql);
         query.setInteger("itemId", itemId);

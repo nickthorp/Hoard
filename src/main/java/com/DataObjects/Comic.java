@@ -1,11 +1,13 @@
-package com;
+package com.DataObjects;
+
+import com.FormatEnums.PrintFormat;
 
 import java.io.Serializable;
 
 /**
  * Created by Nicholas on 11/19/2015.
  */
-public class Comic implements Serializable {
+public class Comic implements Serializable, Item {
 
     private int itemId;
     private String userEmail;
@@ -14,7 +16,7 @@ public class Comic implements Serializable {
     private String artist;
     private String volume;
     private String publisher;
-    private Format format;
+    private PrintFormat format;
     private Boolean isRead;
     private Boolean isReading;
     private String link;
@@ -22,7 +24,7 @@ public class Comic implements Serializable {
     public Comic (){}
 
     public Comic (int itemId, String userEmail, String title, String author, String artist,
-                  String volume, String publisher, Format format, Boolean isRead, Boolean isReading){
+                  String volume, String publisher, PrintFormat format, Boolean isRead, Boolean isReading){
         this.itemId = itemId; this.userEmail = userEmail; this.title = title; this.author = author;
         this.artist = artist; this.publisher = publisher; this.volume = volume; this.format = format;
         this.isRead = isRead; this.isReading = isReading;
@@ -84,11 +86,11 @@ public class Comic implements Serializable {
         this.publisher = publisher;
     }
 
-    public Format getFormat() {
+    public PrintFormat getFormat() {
         return format;
     }
 
-    public void setFormat(Format format) {
+    public void setFormat(PrintFormat format) {
         this.format = format;
     }
 

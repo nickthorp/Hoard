@@ -1,5 +1,7 @@
 package com;
 
+import com.DataAccessObjects.BookDAO;
+import com.DataObjects.Book;
 import junit.framework.TestCase;
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
