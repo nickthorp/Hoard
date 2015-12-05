@@ -3,18 +3,31 @@ package com.DataObjects;
 
 import com.FormatEnums.AudioFormat;
 
+import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
+
 /**
  * Created by Nicholas on 11/23/2015.
  */
-public class Music {
-
+@Entity
+@Table(name = "Music")
+@XmlRootElement
+public class Music implements Serializable, Item {
+    @Id
+    @Column(name = "itemId")
     private int itemId;
+    @Column(name = "userEmail")
     private String userEmail;
+    @Column(name = "artistName")
     private String artistName;
+    @Column(name = "albumTitle")
     private String albumTitle;
     //private ArrayList<String> songTitles;
     //private Image albumArt;
+    @Column(name = "format")
     private AudioFormat format;
+    @Column(name = "isListening")
     private Boolean isListening;
     private String link;
 

@@ -2,17 +2,36 @@ package com.DataObjects;
 
 import com.FormatEnums.VideoGameFormat;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
+
 /**
  * Created by Nicholas on 11/23/2015.
  */
-public class VideoGame {
-
+@Entity
+@Table(name = "VideoGame")
+@XmlRootElement
+public class VideoGame implements Serializable, Item {
+    @Id
+    @Column(name = "itemId")
     private int itemId;
+    @Column(name = "userEmail")
     private String userEmail;
+    @Column(name = "title")
     private String title;
+    @Column(name = "format")
     private VideoGameFormat format;
+    @Column(name = "isPlayed")
     private Boolean isPlayed;
+    @Column(name = "isPlaying")
     private Boolean isPlaying;
+    @Column(name = "isCompleted")
+    private Boolean isCompleted;
+    @Column(name = "developer")
     private String developer;
     private String link;
 
@@ -80,5 +99,13 @@ public class VideoGame {
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public Boolean getCompleted() {
+        return isCompleted;
+    }
+
+    public void setCompleted(Boolean completed) {
+        isCompleted = completed;
     }
 }

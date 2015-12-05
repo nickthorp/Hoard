@@ -1,20 +1,40 @@
 package com.DataObjects;
 
 import com.FormatEnums.VideoFormat;
+import org.hibernate.annotations.Cache;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
 /**
  * Created by Nicholas on 11/23/2015.
  */
-public class TelevisionSeries {
-
+@Entity
+@Table(name = "TelevisionSeries")
+@XmlRootElement
+public class TelevisionSeries implements Serializable, Item {
+    @Id
+    @Column(name = "itemId")
     private int itemId;
+    @Column(name = "userEmail")
     private String userEmail;
+    @Column(name = "title")
     private String title;
+    @Column(name = "releaseYear")
     private int releaseYear;
+    @Column(name = "director")
     private String director;
+    @Column(name = "season")
     private int season;
+    @Column(name = "format")
     private VideoFormat format;
+    @Column(name = "isWatched")
     private Boolean isWatched;
+    @Column(name = "isWatching")
     private Boolean isWatching;
     private String link;
 

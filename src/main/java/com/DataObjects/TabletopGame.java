@@ -2,17 +2,33 @@ package com.DataObjects;
 
 import com.FormatEnums.TableTopFormat;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
+
 /**
  * Created by Nicholas on 11/23/2015.
  */
-public class TabletopGame {
-
+@Entity
+@Table(name ="TabletopGame")
+@XmlRootElement
+public class TabletopGame implements Serializable, Item {
+    @Id
+    @Column(name = "itemId")
     private int itemId;
+    @Column(name = "userEmail")
     private String userEmail;
+    @Column(name = "title")
     private String title;
+    @Column(name = "minPlayers")
     private int minPlayers;
+    @Column(name = "maxPlayers")
     private int maxPlayers;
-    private TableTopFormat Format;
+    @Column(name = "format")
+    private TableTopFormat format;
     private String link;
 
     public TabletopGame(){}
@@ -58,11 +74,11 @@ public class TabletopGame {
     }
 
     public TableTopFormat getFormat() {
-        return Format;
+        return format;
     }
 
     public void setFormat(TableTopFormat format) {
-        Format = format;
+        this.format = format;
     }
 
     public String getLink() {

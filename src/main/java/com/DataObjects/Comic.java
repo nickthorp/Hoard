@@ -2,22 +2,37 @@ package com.DataObjects;
 
 import com.FormatEnums.PrintFormat;
 
+import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 /**
  * Created by Nicholas on 11/19/2015.
  */
+@Entity
+@Table(name = "Comic")
+@XmlRootElement
 public class Comic implements Serializable, Item {
-
+    @Id
+    @Column(name = "itemId")
     private int itemId;
+    @Column(name = "userEmail")
     private String userEmail;
+    @Column(name = "title")
     private String title;
+    @Column(name = "author")
     private String author;
+    @Column(name = "artist")
     private String artist;
+    @Column(name = "volume")
     private String volume;
+    @Column(name = "publisher")
     private String publisher;
+    @Column(name = "format")
     private PrintFormat format;
+    @Column(name = "isRead")
     private Boolean isRead;
+    @Column(name = "isReading")
     private Boolean isReading;
     private String link;
 
