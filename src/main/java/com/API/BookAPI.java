@@ -40,7 +40,7 @@ public class BookAPI {
         objectMapper.setSerializationInclusion(JsonSerialize.Inclusion.NON_DEFAULT);
         List<Book> books = BookDAO.getInstance().getAllBooks();
         for (Book book : books)
-            book.setLink(ITEMS_URL + "/" + book.getItemId());
+            book.setLink(ITEMS_URL + "/" + book.getUserEmail() + "/" + book.getItemId());
         return objectMapper.writeValueAsString(books);
     }
 
@@ -52,7 +52,7 @@ public class BookAPI {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.setSerializationInclusion(JsonSerialize.Inclusion.NON_DEFAULT);
         List<Book> books = BookDAO.getInstance().getAllBooksForUser(userEmail);
-        for (Book book :books)
+        for (Book book : books)
             book.setLink(ITEMS_URL + "/" + book.getUserEmail() + "/" + book.getItemId());
         return objectMapper.writeValueAsString(books);
     }

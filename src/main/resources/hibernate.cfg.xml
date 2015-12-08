@@ -21,5 +21,11 @@
         <property name="hbm2ddl.auto">create</property>
 <!--        <mapping resource="Book.hbm.xml"/> -->
         <mapping class="com.DataObjects.Book" />
+        <mapping class="com.DataObjects.Comic" />
+        <mapping class="com.DataObjects.Movie" />
+        <mapping class="com.DataObjects.Music" />
+        <mapping class="com.DataObjects.TabletopGame" />
+        <mapping class="com.DataObjects.TelevisionSeries" />
+        <mapping class="com.DataObjects.VideoGame" />
     </session-factory>
 </hibernate-configuration>
