@@ -13,7 +13,7 @@
 <!--        <property name="hibernate.connection.url">jdbc:mysql://localhost/Horde</property> -->
         <property name="hibernate.connection.username">SA</property>
         <property name="hibernate.connection.password"></property>
-        <property name="hibernate.connection.pool_size">1</property>
+        <property name="hibernate.connection.pool_size">10</property>
 
         <property name="current_session_context_class">thread</property>
         <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>

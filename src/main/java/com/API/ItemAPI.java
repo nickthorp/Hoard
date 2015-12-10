@@ -5,6 +5,7 @@ import com.DataObjects.Item;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
+import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
 /**
  * Created by Nicholas on 12/5/2015.
  */
-
+@Path("items")
 @Produces(MediaType.APPLICATION_JSON)
 public abstract class ItemAPI {
 
