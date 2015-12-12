@@ -13,8 +13,9 @@ import java.io.Serializable;
 @Entity
 @Table(name = "Movie")
 @XmlRootElement
-public class Movie implements Serializable, Item {
+public class Movie implements Item {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "itemId")
     private int itemId;
     @Column(name = "userEmail")

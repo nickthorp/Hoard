@@ -2,10 +2,7 @@ package com.DataObjects;
 
 import com.FormatEnums.TableTopFormat;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
@@ -15,8 +12,9 @@ import java.io.Serializable;
 @Entity
 @Table(name ="TabletopGame")
 @XmlRootElement
-public class TabletopGame implements Serializable, Item {
+public class TabletopGame implements Item {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "itemId")
     private int itemId;
     @Column(name = "userEmail")

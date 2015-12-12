@@ -4,7 +4,6 @@ import com.FormatEnums.PrintFormat;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.io.Serializable;
 
 /**
  * Created by Nicholas on 11/19/2015.
@@ -12,8 +11,9 @@ import java.io.Serializable;
 @Entity
 @Table(name = "Comic")
 @XmlRootElement
-public class Comic implements Serializable, Item {
+public class Comic implements Item {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "itemId")
     private int itemId;
     @Column(name = "userEmail")
@@ -25,7 +25,7 @@ public class Comic implements Serializable, Item {
     @Column(name = "artist")
     private String artist;
     @Column(name = "volume")
-    private String volume;
+    private int volume;
     @Column(name = "publisher")
     private String publisher;
     @Column(name = "format")
@@ -39,7 +39,7 @@ public class Comic implements Serializable, Item {
     public Comic (){}
 
     public Comic (int itemId, String userEmail, String title, String author, String artist,
-                  String volume, String publisher, PrintFormat format, Boolean isRead, Boolean isReading){
+                  int volume, String publisher, PrintFormat format, Boolean isRead, Boolean isReading){
         this.itemId = itemId; this.userEmail = userEmail; this.title = title; this.author = author;
         this.artist = artist; this.publisher = publisher; this.volume = volume; this.format = format;
         this.isRead = isRead; this.isReading = isReading;
@@ -85,11 +85,11 @@ public class Comic implements Serializable, Item {
         this.artist = artist;
     }
 
-    public String getVolume() {
+    public int getVolume() {
         return volume;
     }
 
-    public void setVolume(String volume) {
+    public void setVolume(int volume) {
         this.volume = volume;
     }
 

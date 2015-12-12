@@ -2,12 +2,8 @@ package com.DataObjects;
 
 import com.FormatEnums.PrintFormat;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.io.Serializable;
 
 /**
  * Created by Nicholas on 10/27/2015.
@@ -15,8 +11,9 @@ import java.io.Serializable;
 @Entity
 @Table(name = "Book")
 @XmlRootElement
-public class Book implements Serializable,Item {
+public class Book implements Item {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "itemId")
     private int itemId;
     @Column(name = "userEmail")
